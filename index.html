@@ -1,1 +1,202 @@
-Hello World
+<!DOCTYPE html>
+<html lang="es" data-ng-app="agomez">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Álvaro Gómez-Arevalillo Web</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    
+    
+    <!-- Custom CSS -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+ 	<link href="css/agomez.css" rel="stylesheet">
+ 	<link href="css/chronoline.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    
+	<!-- Utils JS -->
+	<script src="js/raphael-min.js"></script>
+	<script src="js/chronoline.js"></script>
+    <script src="js/angular.min.js"></script>
+	<script src="js/agomez.js"></script>
+    <script src="js/utiles.js"></script>
+
+    
+    <!-- Angular JS i18n -->
+    <script src="js/angular-translate.js"></script>
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Scrolling Nav JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
+    
+    
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" data-ng-controller="indexController">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Álvaro Gómez-Arevalillo</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li> 
+                    <li>
+                        <a class="page-scroll" href="#about">{{'MENU_ABOUT' | translate }}</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">{{'MENU_PROYECTOS' | translate }}</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact" >{{'MENU_CONTACT'| translate }}</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+							<li role="presentation" class="dropdown"><a
+								class="dropdown-toggle" data-toggle="dropdown" href="#"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								translate="MENU_LANG"><span class="caret"></span>
+							</a>
+								<ul class="dropdown-menu">
+									<li class="btn"><button class="btn lang_button"
+											data-ng-click="changeLanguage('esp')">
+											<img src="img/spain.png" /> {{'BUTTON_LANG_ES'| translate }}
+										</button></li>
+									<li class="btn"><button class="btn lang_button"
+											data-ng-click="changeLanguage('eng')">
+											<img src="img/english.png" /> {{'BUTTON_LANG_EN'| translate
+											}}
+										</button></li>
+									<li class="btn"><button class="btn lang_button"
+											data-ng-click="changeLanguage('deu')">
+											<img src="img/deutsch.png" /> {{'BUTTON_LANG_DE'| translate
+											}}
+										</button></li>
+
+								</ul></li>
+				</ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Section -->
+    <section id="intro" class="intro-section bg-holder">
+        <div class="container">
+
+        </div>
+    </section>
+ 
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>{{'MENU_ABOUT' | translate }}</h1>
+                </div>
+                <div id="temp" class="col-lg-12">
+            
+      			</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>{{'MENU_PROYECTOS' | translate }}</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>{{'MENU_CONTACT'| translate }}</h2>
+			        <div class="row contact-row">
+			            <div class="col-md-3 contact-item">
+			            <a href="{{'LINKEDIN_LINK' | translate }}"><span><i class="fa fa-linkedin-square md-62"></i></span>   
+			            <span><h4>LinkedIn</h4></span>
+			            </a>
+			            </div>
+			            <div class="col-md-3 contact-item">
+			                   <span><i class="fa fa-envelope-o mail_item_color md-62"></i></span>
+			                   <span><h4>alvarogomezare@gmail.com</h4></span>
+			            </div>
+			            <div class="col-md-3 contact-item">
+						       <span><i class="fa fa-mobile phone_item_color md-62"></i></span>
+			                   <span><h4>+34 626919372</h4></span>
+			            </div>
+			            <div class="col-md-3 contact-item">
+			                   <span><i class="fa fa-street-view ubication_item_color md-62"></i></span>
+			                   <span><h4>Madrid, {{'SPAIN' | translate }}</h4></span>
+			            </div>
+			        </div>
+                </div>
+            </div>
+<!-- 			<div class="row contact-row"> -->
+<!-- 			            <div class="col-md-3 contact-item"> -->
+<!-- 						       <span> </span> -->
+<!-- 			                   <span> </span> -->
+<!-- 			            <div class="col-md-3 contact-item"> -->
+<!--            				 <a href="{{'LINKEDIN_LINK' | translate }}" class="git_item_color"><span><i class="fa  fa-github-square  md-62"></i></span>    -->
+<!-- 			            <span><h4>GitHub</h4></span> -->
+<!-- 			            </a> -->
+<!-- 			            </div> -->
+<!-- 			            <div class="col-md-3 contact-item"> -->
+<!-- 						       <span> </span> -->
+<!-- 			                   <span> </span> -->
+<!-- 			            </div> -->
+<!-- 			            <div class="col-md-3 contact-item"> -->
+<!-- 						       <span> </span> -->
+<!-- 			                   <span> </span> -->
+<!-- 			            </div> -->
+<!--             </div> -->
+        </div>
+    </section>
+
+
+</body>
+
+</html>
